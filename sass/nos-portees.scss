@@ -1,0 +1,219 @@
+@use "colors";
+@use "dimensions";
+@use "fonts";
+
+#puppies {
+    display: flex;
+    flex-direction: column;
+    padding: dimensions.$standardBigGap 0;
+    width: 100vw;
+    margin-top: dimensions.$mainMenuSize;
+    align-items: center;
+    gap: dimensions.$standardBigGap;
+
+    .puppie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: colors.$secondaryColor;
+        border: 2px solid black;
+        max-width: 900px;
+        width: 80%;
+
+        .preview {
+            display: grid;
+            grid-template-columns: 4fr 5fr;
+            grid-template-rows: 199px fit-content fit-content;
+            align-items: center;
+            justify-content: center;
+            grid-gap: dimensions.$standardMediumGap;
+            padding: 10px;
+
+
+
+            img {
+                pointer-events: none;
+                min-width: 150px;
+                max-width: 70%;
+            }
+
+            .dateBirthAvailability {
+                display: flex;
+                flex-direction: column;
+                gap: dimensions.$standardMediumGap;
+                pointer-events: none;
+
+                p {
+                    width: 100%;
+                    font-size: 24px;
+                    text-align: left;
+                }
+
+                .birthDate {
+                    font-weight: bold;
+                }
+            }
+
+            .parents {
+                display: flex;
+                flex-direction: column;
+                grid-column-start: 1;
+                grid-column-end: 3;
+                font-style: italic;
+                text-align: center;
+                pointer-events: none;
+
+                p {
+                    width: 100%;
+                    font-size: 24px;
+                    text-align: center;
+                }
+            }
+
+            .arrow {
+                grid-column: 1 / 3;
+                pointer-events: none;
+
+                i {
+                    padding: 8px;
+                    width: 100%;
+                    font-size: 2.5rem;
+                }
+
+
+            }
+
+
+        }
+
+        .availablePuppies {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: dimensions.$standardMediumGap;
+            padding-bottom: dimensions.$standardMediumGap;
+
+            .puppieInfos {
+                display: flex;
+                flex-direction: row;
+                background-color: white;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 80%;
+                padding: 8px;
+
+                img {
+                    min-width: 100px;
+                    max-width: 200px;
+                }
+
+
+                .pupInfoContact {
+                    display: flex;
+                    flex-direction: column;
+                    gap: dimensions.$standardMediumGap;
+
+                    .pupGenderId {
+                        display: flex;
+                        flex-direction: column;
+                        gap: dimensions.$standardMediumGap;
+                        .male {
+                            color: #01A6EA;
+                            font-weight: bold;
+                        }
+
+                        .female {
+                            color: #FFB1CB;
+                            font-weight: bold;
+                        }
+                    }
+
+                    a {
+                        height: fit-content;
+                    }
+
+                }
+
+
+            }
+        }
+
+
+    }
+
+}
+
+// ========================= Media Queries =========================
+@media (min-width:1200px) {
+    #puppies {
+
+        .puppie {
+            max-width: 60%;
+            min-width: 1100px;
+
+            .preview {
+                grid-template-columns: max-content 1fr 1fr;
+                grid-template-rows: fit-content fit-content;
+
+                img {
+                    max-width: 350px;
+                }
+
+                .dateBirthAvailability {
+                    gap: dimensions.$standardBigGap;
+
+                    p {
+                        text-align: center;
+                    }
+                }
+
+                .parents {
+                    grid-column: 3/4;
+                    gap: dimensions.$standardBigGap
+                }
+
+                .arrow {
+                    grid-column: 1/4;
+
+                    i {
+                        font-size: 4rem;
+                    }
+                }
+            }
+
+            .availablePuppies {
+                .puppieInfos {
+                    gap: dimensions.$standardBigGap;
+
+                    img {
+                        max-width: 250px;
+                    }
+
+                    .pupInfoContact {
+                        width: 70%;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                        align-items: center;
+
+
+                        p,
+                        a {
+                            text-align: center;
+                            font-size: 1.5rem;
+                        }
+
+                    }
+
+
+
+                }
+
+            }
+
+
+
+        }
+    }
+    
+}

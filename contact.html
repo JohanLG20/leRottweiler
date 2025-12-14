@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Élevage des gardiens de la Veaussardière</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+    <!-- Header Menu -->
+    <header id="headerMenu">
+        <div id="mobileMenu">
+            <a href="index.html" id="websiteName">Elevage des Gardiens de la Veaussardière</a>
+            <div id="burger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <nav id="mainMenu">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="dropDownMenu">
+                    <div class="textAndChevron">
+                        <p>Nos chiens</p>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+
+                    <ul>
+                        <li><a href="/nos-chiens/nos-males.html">Nos mâles</a></li>
+                        <li><a href="#">Nos femelles</a></li>
+                        <li><a href="/nos-chiens/nos-portees.html">Nos portées</a></li>
+                        <li><a href="#">Les mariages prévus</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Réservations</a></li>
+                <li><a href="#">Tarifs</a></li>
+                <li class="dropDownMenu">
+                    <div class="textAndChevron">
+                        <p>L'élevage</p>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul>
+                        <li><a href="#">A propos</a></li>
+                        <li><a href="#">Nos garanties</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Vos obligations légales</a></li>
+                <li class="dropDownMenu">
+                    <div class="textAndChevron">
+                        <p>Nos prestations</p>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul>
+                        <li><a href="#">Les formations</a></li>
+                        <li><a href="#">Transport</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div id="contact">
+            <div id="map">
+            </div>
+            <form action="envoyerFormulaire.php" id="contactGrid">
+                <fieldset>
+                    <legend>Contact</legend>
+                </fieldset>
+                <div class="col">
+                    <label for="allGenders">Civilité</label>
+                    <div id="allGenders" name="allGenders">
+                        <label for="gender"><input type="radio" name="gender">Mr</label>
+                        <label for="gender"><input type="radio" name="gender">Mme</label>
+                        <label for="gender"><input type="radio" name="gender">Autre</label>
+                    </div>
+                </div>
+
+
+                <div id="name" class="box">
+                    <div class="col">
+                        <label for="lastname">Nom</label>
+                        <input type="text" name="lastname" placeholder="Votre nom">
+                    </div class="col">
+                    <div class="col">
+                        <label for="firstname">Prénom</label>
+                        <input type="text" name="firstname" placeholder="Votre prénom">
+                    </div>
+                </div>
+
+                <div id="mailPhone" class="box">
+                    <div class="col">
+                        <label for="mail">Mail</label>
+                        <input type="email" placeholder="votremail@domaine.ext">
+                    </div>
+                    <div class="col">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" name="phone" placeholder="0656238956">
+                    </div>
+                </div>
+                <div id="subjectMessage">
+                    <select name="object" id="object">
+                        <option value="">Sélectionnez l'objet de votre message</option>
+                        <option value="0">Je souhaite réserver un chiot</option>
+                        <option value="1">Je souhaite adopter un chien</option>
+                        <option value="2">J'ai une question concernant un chiot/chien que j'ai adopté</option>
+                        <option value="3">Je souhaite proposer une saillie</option>
+                        <option value="4">Autre question</option>
+                    </select>
+
+                    <textarea name="message" id="message" rows="5" placeholder="Votre message"></textarea>
+                </div>
+                <div class="button">
+                    <i class="fa-solid fa-paw"></i>
+                    <button type="submit">Envoyer</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="box">
+
+            <div class="columns">
+                <a href="index.html">Accueil</a>
+                <a href="nos-chiens/nos-portees.html">Nos portées</a>
+                <a href="elevage/a-propos.html">A propos</a>
+                <a href="nos-prestations/formations.html">Nos formations</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="columns">
+
+                <p id="coordinatesTitle">Nos coordonnées</p>
+
+                <div class="footerInfo">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>Avenue de la plaine
+                        06250 Mougins</p>
+                </div>
+                <div class="footerInfo">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>06 80 52 40 09</p>
+                </div>
+                <div class="footerInfo">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>info@le-rottweiler.com</p>
+                </div>
+            </div>
+
+
+
+            <div class="columns">
+
+                <p>Éleveur membre de l’Union Française pour le Rottweiler N°549</p>
+                <p>Producteur canin N°062544 affilié à la Société Centrale Canine</p>
+                <p>Formateur habilité pour la formation aux maîtres des chiens de 1ère et 2ème catégories</p>
+                <p>Habilitation transport N°FR06062T1 </p>
+            </div>
+
+        </div>
+        <div id="footerEnd">
+            <p>Copyright 2025 -
+                <a href="mentions-legales.html">Mentions Légales</a>
+            </p>
+
+            <a href="#" class="button"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+
+    </footer>
+    <script src="/scripts/scripts.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        var map = L.map('map').setView([43.606333, 6.973096], 8);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        let marker = L.marker([43.606333, 6.973096]).addTo(map);
+        marker.bindPopup("<b>Élevage des Gardiens de la Veaussardière</b><br>6 avenue de la Plaine, 06250 Mougins").openPopup();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,818 @@
+@use "colors";
+@use "dimensions";
+@use "fonts";
+
+// ========================= General settings =========================
+* {
+    padding: 0;
+    margin: 0;
+
+    body {
+        font-size: 18px;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .content {
+        max-width: dimensions.$pageSize;
+        width: 100%;
+        margin: 0 auto;
+
+    }
+
+    .button {
+        width: fit-content;
+        text-align: center;
+        padding: dimensions.$buttonPadding;
+        color: colors.$textButtonColor;
+        background-color: colors.$backgroundButtonColor;
+        border-radius: dimensions.$buttonBorderRadius;
+        -webkit-border-radius: dimensions.$buttonBorderRadius;
+        -moz-border-radius: dimensions.$buttonBorderRadius;
+        -ms-border-radius: dimensions.$buttonBorderRadius;
+        -o-border-radius: dimensions.$buttonBorderRadius;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+
+
+    .sectionTitle {
+        width: fit-content;
+        font-size: dimensions.$titleSectionSize;
+        text-align: center;
+    }
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        gap: dimensions.$standardMediumGap;
+        width: 80%;
+    }
+
+    .columns {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: dimensions.$standardMediumGap;
+        margin: 10px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .gridBox {
+        display: grid;
+    }
+}
+
+
+
+
+
+// ========================= Header menu =========================
+#headerMenu {
+    position: fixed;
+    max-width: 1200px;
+    width: 100vw;
+    top: 0%;
+    height: dimensions.$mainMenuSize;
+    z-index: 1000;
+
+    #mobileMenu {
+
+        display: grid;
+        top: 0%;
+        width: 100%;
+        height: dimensions.$mainMenuSize;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: auto;
+        background-color: colors.$primaryColor;
+        color: colors.$secondaryColor;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 1px 2px rgba(black, .5);
+
+        #websiteName {
+            grid-column: 2/3;
+            font-size: 1.2rem;
+            color: colors.$pattern1TextColor;
+            font-weight: bold;
+            text-align: center;
+            font-family: 'precious';
+        }
+
+        #burger {
+            grid-column: 3/4;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+    }
+
+    #mainMenu {
+        display: none;
+        width: 100%;
+        background-color: colors.$primaryColor;
+        color: colors.$secondaryColor;
+        position: fixed;
+        justify-content: center;
+        padding-bottom: 24px;
+
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: dimensions.$standardBigGap;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+
+            li {
+                a {
+                    color: colors.$secondaryColor;
+                }
+            }
+
+            .dropDownMenu {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+
+                .textAndChevron {
+                    pointer-events: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4px;
+                }
+
+
+                ul {
+                    display: none;
+                    gap: dimensions.$standardLittleGap;
+                    padding: 4px 8px;
+                    width: 100%;
+                    background-color: colors.$dropDownMenuBackgroundColor;
+                    margin-top: dimensions.$standardMediumGap;
+
+                    li {
+                        width: 100%;
+                        padding: 4px 8px;
+
+                        a {
+                            color: colors.$dropDownMenuTextColor;
+                        }
+
+                    }
+
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+
+    }
+}
+
+
+// ========================= Banner =========================
+#banner {
+    display: none;
+    width: 100%;
+    max-height: 700px;
+    margin-top: 30px;
+}
+
+
+// ========================= Dogs presentation =========================
+#dogs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: dimensions.$standardBigGap 0;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$primaryColor;
+    color: colors.$secondaryColor;
+    margin-top: dimensions.$mainMenuSize;
+
+    #dogPresentationMobile {
+        justify-self: center;
+        width: 80%;
+        height: auto;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    //Slider
+    .slider {
+        display: none;
+        flex-direction: column;
+        width: 1001px;
+        background-color: white;
+
+        #captions {
+            display: flex;
+            width: 100%;
+            gap: 1px;
+
+            //A faire en mixin
+            #caption1 {
+                display: flex;
+                justify-content: center;
+                padding: 4px 0;
+                align-items: center;
+                gap: dimensions.$standardLittleGap;
+                width: 500px;
+                background-color: colors.$sliderCaptionBackground;
+
+                i {
+                    color: colors.$femaleDog;
+                }
+
+                p {
+                    color: black;
+                }
+            }
+
+            #caption2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: dimensions.$standardLittleGap;
+                padding: 4px 0;
+                width: 500px;
+                background-color: colors.$sliderCaptionBackground;
+
+                i {
+                    color: colors.$femaleDog;
+                }
+
+                p {
+                    color: black;
+                }
+            }
+
+        }
+
+        .images {
+            display: flex;
+            gap: 1px;
+            width: 100%;
+
+            a {
+                img {
+                    height: auto;
+                    width: 500px;
+                }
+            }
+
+        }
+
+    }
+
+    .box {
+        gap: dimensions.$standardLittleGap;
+
+        .columns {
+            .textAndBone {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: flex-start;
+                gap: dimensions.$standardLittleGap;
+
+
+                .bone {
+                    text-align: left;
+                    font-size: 1.6rem;
+
+                }
+            }
+
+        }
+    }
+
+    #seeDogs {
+        display: flex;
+        gap: dimensions.$standardMediumGap;
+    }
+}
+
+
+// ========================= Rearers presentation =========================
+#rearers {
+    padding: dimensions.$standardBigGap 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$pattern2BackgroungColor;
+    color: colors.$pattern2TextColor;
+
+    .box {
+        .columns:last-child {
+            display: none;
+        }
+    }
+
+    #qualities {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: dimensions.$standardMediumGap;
+
+        h3 {
+            font-size: dimensions.$subTitleSize;
+            text-align: center;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: row;
+
+            .columns {
+                img {
+                    width: 117px;
+                    height: 124px;
+                    border-radius: 25px;
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    -o-border-radius: 25px;
+
+                }
+
+                p {
+                    text-align: center;
+                }
+            }
+
+        }
+    }
+
+}
+
+
+// ========================= Actualities =========================
+#actualities {
+    padding: dimensions.$standardBigGap 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$pattern1BackgroungColor;
+    color: colors.$pattern1TextColor;
+
+    .gridBox {
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-template-rows: 450px;
+        gap: dimensions.$standardMediumGap;
+        max-width: 90%;
+
+
+        a {
+            height: fit-content;
+            color: colors.$pattern2TextColor;
+            max-width: 300px;
+            justify-self: center;
+            align-self: center;
+
+            .articles {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 450px;
+                border: 2px solid black;
+                box-sizing: border-box;
+                border-radius: 16px;
+                padding: 8px;
+                background-color: colors.$pattern2BackgroungColor;
+                gap: dimensions.$standardLittleGap;
+                -webkit-border-radius: 16px;
+                -moz-border-radius: 16px;
+                -ms-border-radius: 16px;
+                -o-border-radius: 16px;
+
+                h3 {
+                    width: 100%;
+                    text-align: left;
+                }
+
+
+                img {
+                    width: fit-content;
+                    height: 170px;
+                }
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+        }
+    }
+
+}
+
+// ========================= Why take a Rottweiler =========================
+#whyRott {
+    padding: dimensions.$standardBigGap 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$pattern2BackgroungColor;
+    color: colors.$pattern2TextColor;
+
+    .box {
+        gap: dimensions.$standardLittleGap;
+        align-items: center;
+
+        .columns {
+            h3 {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    .box:nth-child(3) {
+        .columns:first-child {
+            display: none;
+        }
+    }
+
+    #warning {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        text-align: center;
+        gap: dimensions.$standardMediumGap;
+        background-color: #E5E5E5;
+        color: red;
+        box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+        width: 80%;
+        max-width: 600px;
+        align-items: center;
+
+        i {
+            font-size: 6rem;
+        }
+    }
+
+}
+
+
+// ========================= Testimony =========================
+#testimony {
+    padding: dimensions.$standardBigGap 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$pattern1BackgroungColor;
+    color: colors.$pattern1TextColor;
+
+    .box {
+        width: 90%;
+        gap: dimensions.$standardLittleGap;
+        align-items: center;
+
+        .frame {
+            display: flex;
+            padding: 8px;
+            height: auto;
+            width: 80%;
+            background-color: colors.$pattern2BackgroungColor;
+            color: colors.$pattern2TextColor;
+            align-items: center;
+
+            .columns {
+                gap: dimensions.$standardLittleGap;
+
+                img {
+                    border-radius: 16px;
+                    -webkit-border-radius: 16px;
+                    -moz-border-radius: 16px;
+                    -ms-border-radius: 16px;
+                    -o-border-radius: 16px;
+                }
+
+                h3 {
+                    width: 100%;
+                    text-align: left;
+                }
+
+                p {
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+
+            .columns:first-child {
+                width: 150px;
+                height: auto;
+            }
+        }
+    }
+}
+
+
+// ========================= Footer =========================
+#footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$pattern1BackgroungColor;
+    color: colors.$pattern1TextColor;
+    margin-top: 1px;
+
+    .box {
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 80%;
+        border-bottom: 2px solid colors.$backgroundButtonColor;
+
+
+        .columns {
+            width: 100%;
+            border-bottom: 2px solid colors.$backgroundButtonColor;
+            padding-bottom: dimensions.$standardBigGap;
+
+            a {
+                color: colors.$pattern1TextColor
+            }
+
+            p {
+                width: 100%;
+                text-align: left;
+                font-size: 0.9rem;
+            }
+
+            #coordinatesTitle {
+                font-size: 2rem;
+            }
+
+            .footerInfo {
+                display: flex;
+                width: max-content;
+                align-items: center;
+                gap: dimensions.$standardLittleGap;
+                width: 100%;
+
+            }
+
+            &:first-child {
+                gap: dimensions.$standardLittleGap;
+            }
+
+            &:last-child {
+                border: none;
+
+            }
+
+        }
+
+
+    }
+
+    #footerEnd {
+        display: flex;
+        width: 90%;
+        padding-bottom: 16px;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            color: colors.$pattern1TextColor;
+            text-decoration: underline;
+        }
+
+        .button {
+            position: absolute;
+            right: 10%;
+            padding: 8px 10px;
+            border-radius: 90px;
+            -webkit-border-radius: 90px;
+            -moz-border-radius: 90px;
+            -ms-border-radius: 90px;
+            -o-border-radius: 90px;
+        }
+    }
+}
+
+// ========================= Media Queries =========================
+@media (min-width:1200px) {
+
+    // ============== General Settings
+    .box {
+        flex-direction: row;
+        gap: dimensions.$standardBigGap;
+        width: 90%;
+    }
+
+    .columns {
+        width: 50%;
+    }
+
+    // ============== Header
+    #headerMenu {
+        #mobileMenu {
+            display: none;
+        }
+
+        #mainMenu {
+            display: flex;
+            gap: dimensions.$standardMediumGap;
+            height: dimensions.$mainMenuSize;
+            padding-bottom: 0;
+            box-shadow: 1px 1px 2px rgba(black, .5);
+
+            ul {
+                flex-direction: row;
+                box-sizing: border-box;
+
+                li {
+                    &:hover {
+                        border-bottom: 2px solid colors.$secondaryColor ;
+                    }
+                }
+
+                .dropDownMenu {
+                    width: fit-content;
+
+                    .textAndChevron {
+                        pointer-events: all;
+                        &:hover+ul {
+                            display: flex;
+
+                        }
+
+                    }
+
+                    ul {
+                        display: none;
+                        position: absolute;
+                        height: auto;
+                        gap: 1px;
+                        width: dimensions.$dropDownMenuWidth;
+                        padding-top: dimensions.$standardLittleGap;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        text-align: left;
+                        background-color: transparent;
+
+                        &:hover {
+                            display: flex;
+
+                        }
+
+
+                        li {
+                            padding: 4px 8px;
+                            box-sizing: border-box;
+                            width: dimensions.$dropDownMenuWidth;
+                            background-color: colors.$dropDownMenuBackgroundColor;
+                            border: 2px solid colors.$dropDownMenuTextColor;
+
+                            a {
+
+                                width: dimensions.$dropDownMenuWidth;
+                                color: colors.$dropDownMenuTextColor;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // ============== Banner
+    #banner {
+        display: block;
+    }
+
+    // ============== Dogs presentation
+    #dogs {
+        margin-top: 0;
+
+        #dogPresentationMobile {
+            display: none;
+        }
+
+        .slider {
+            display: block
+        }
+
+        .box {
+            gap: dimensions.$standardMediumGap;
+        }
+    }
+
+    // ============== Rearers presentation
+    #rearers {
+        .box {
+            .columns:last-child {
+                display: flex;
+            }
+        }
+    }
+
+    // ============== Header
+
+    // ============== Why Rotteweiler
+    #whyRott {
+        .box {
+            .columns:first-child {
+                h3 {
+                    width: 100%;
+                    text-align: left;
+                }
+            }
+
+            .columns:last-child {
+                h3 {
+                    width: 100%;
+                    text-align: right;
+                }
+            }
+        }
+
+        .box:nth-child(3) {
+            .columns:first-child {
+                display: flex;
+            }
+        }
+
+        #warning {
+            flex-direction: row;
+            text-align: left;
+        }
+    }
+
+    // ============== Testimony
+    #testimony {
+        .box {
+            width: 98%;
+
+            .frame {
+                width: 33%;
+                height: 216px;
+            }
+        }
+    }
+
+    // ============== Footer
+    #footer {
+        .box {
+            flex-direction: row;
+            align-items: flex-start;
+
+            .columns {
+                width: max-content;
+                border-bottom: none;
+                align-items: flex-start;
+
+                a {
+                    &:hover {
+                        border-bottom: 2px solid colors.$pattern1TextColor;
+                    }
+                }
+
+                #coordinatesTitle {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+}
