@@ -543,14 +543,17 @@
     display: flex;
   }
   #headerMenu #mainMenu ul .dropDownMenu ul li {
-    padding: 4px 8px;
     box-sizing: border-box;
     width: 225px;
     background-color: #eeeeee;
     border: 2px solid black;
+    padding: 0;
   }
   #headerMenu #mainMenu ul .dropDownMenu ul li a {
-    width: 225px;
+    padding: 4px 8px;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
     color: black;
   }
   #banner {

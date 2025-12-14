@@ -694,15 +694,16 @@
 
 
                         li {
-                            padding: 4px 8px;
                             box-sizing: border-box;
                             width: dimensions.$dropDownMenuWidth;
                             background-color: colors.$dropDownMenuBackgroundColor;
                             border: 2px solid colors.$dropDownMenuTextColor;
-
+                            padding: 0;
                             a {
-
-                                width: dimensions.$dropDownMenuWidth;
+                                padding: 4px 8px;
+                                display: inline-block;
+                                height: 100%;
+                                width: 100%;
                                 color: colors.$dropDownMenuTextColor;
                             }
                         }
