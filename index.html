@@ -8,6 +8,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/slider.css">
 
 
     <title>Élevage des gardiens de la Veaussardière</title>
@@ -72,13 +73,13 @@
     <!-- Main content-->
     <main>
         <!-- Banner -->
-        <img src="/images/testBanner.png" alt="Rottweileir gagne trophée" id="banner">
+        <img src="images/testBanner.png" alt="Rottweileir gagne trophée" id="banner">
 
         <!-- Dogs presentation-->
         <section id="dogs" class="content">
             <h2 class="sectionTitle">Découvrez nos chiens</h2>
             <div id="dogPresentationMobile">
-                <img src="/images/dogPresentionMobile.png" alt="Alfy Flash Rouse">
+                <img src="images/dogPresentionMobile.png" alt="Alfy Flash Rouse">
 
             </div>
 
@@ -94,34 +95,57 @@
                         <p id="secondDogName">Dog name</p>
                     </div>
                 </div>
+
+                    <div id="leftButton" class="sliderButton">
+<i class="fa-solid fa-circle-arrow-left"></i>
+                    </div>
+
+                    <div id="leftButton" class="sliderButton">
+<i class="fa-solid fa-circle-arrow-left"></i>
+                    </div>
+
+
                 <div class="images">
-                    <a href=""><img src="/images/slider/anitaDesGardiensDeLaVeaussardiere.png" alt=""></a>
-                    <a href=""><img src="/images/slider/lislaDiCasaSambuca.png" alt=""></a>
+                    <a href=""><img src="images/slider/anitaDesGardiensDeLaVeaussardiere.png" alt=""></a>
+                    <a href=""><img src="images/slider/lislaDiCasaSambuca.png" alt=""></a>
                 </div>
                 <div class="images">
-                    <a href=""><img src="/images/slider/gildaDiCasaSambuca.png" alt=""></a>
-                    <a href=""><img src="/images/slider/supraDiePrinzenShwarzDerKuppel.png" alt=""></a>
+                    <a href=""><img src="images/slider/gildaDiCasaSambuca.png" alt=""></a>
+                    <a href=""><img src="images/slider/supraDiePrinzenShwarzDerKuppel.png" alt=""></a>
                 </div>
                 <div class="images">
-                    <a href=""><img src="/images/slider/vannessaDesGardiensDeLaVeaussardière.png" alt=""></a>
-                    <a href=""><img src="/images/slider/toxieDesGardiensDeLaVeaussardière.png" alt=""></a>
+                    <a href=""><img src="images/slider/vannessaDesGardiensDeLaVeaussardière.png" alt=""></a>
+                    <a href=""><img src="images/slider/toxieDesGardiensDeLaVeaussardière.png" alt=""></a>
                 </div>
                 <div class="images">
-                    <a href=""><img src="/images/slider/famaVomHauseEdelstein.png" alt=""></a>
-                    <a href=""><img src="/images/slider/alfyFlashRouse.png" alt=""></a>
+                    <a href=""><img src="images/slider/famaVomHauseEdelstein.png" alt=""></a>
+                    <a href=""><img src="images/slider/alfyFlashRouse.png" alt=""></a>
                 </div>
                 <div class="images">
-                    <a href=""><img src="/images/slider/anteVomHauseEdelstein.png" alt=""></a>
-                    <a href=""><img src="/images/slider/lucasDiSambuca.png" alt=""></a>
+                    <a href=""><img src="images/slider/anteVomHauseEdelstein.png" alt=""></a>
+                    <a href=""><img src="images/slider/lucasDiSambuca.png" alt=""></a>
                 </div>
 
+            </div>
+
+            <div id="seeDogs">
+                <a href="nos-chiens/nos-males.html" class="button">Voir nos mâles</a>
+                <a href="nos-chiens/nos-femelles.html" class="button">Voir nos femelles</a>
+                <a href="nos-chiens/nos-portees.html" class="button">Voir nos chiots</a>
             </div>
 
             <div class="box">
                 <div class="columns">
                     <div class="textAndBone">
                         <i class="fa-solid fa-bone bone"></i>
-                        <p>Tous nos chiens ont reçu une évaluation comportementale favorable (1/4)</p>
+                        <p aria-describedby="favorableBehavior">Tous nos chiens ont reçu une évaluation comportementale
+                            favorable (1/4)</p>
+
+                        <p role="tooltip" id="favorableBehavior">
+                            Ce test est légalement obligatoire et vise à déterminer le danger potentiel que représente
+                            le chien. Il comporte 4 niveaux de dangerosité, le niveau 1 signifie que le chien ne
+                            présente pas de risque particulier, en dehors de ceux inhérant à son espèce.
+                        </p>
                     </div>
                     <div class="textAndBone">
                         <i class="fa-solid fa-bone bone"></i>
@@ -133,7 +157,10 @@
                     </div>
                     <div class="textAndBone">
                         <i class="fa-solid fa-bone bone"></i>
-                        <p>Chiots radiographié coudes et hanches </p>
+                        <p aria-describedby="dysplasie">Chiots radiographié dysplasie coudes et hanches </p>
+                        <p role="tooltip" id="dysplasie">
+                            La dysplasie est une affection articulaire qui peut engendrer de grandes douleurs et limiter la mobilité du chien. Elle est plutôt présente chez les chiens de grande race. Elle peut être héréditaire mais peut se développer grâce à d'autres facteurs comme l'alimentation ou des exercices inadaptés.
+                        </p>
                     </div>
 
                 </div>
@@ -141,7 +168,12 @@
                 <div class="columns">
                     <div class="textAndBone">
                         <i class="fa-solid fa-bone bone"></i>
-                        <p>Test adn et JLPP</p>
+                        <p aria-describedby="jlpp">Test adn pour JLPP négatif</p>
+                        <p role="tooltip" id="jlpp">
+                            La paralysie laryngée juvénile et polyneuropathie (JLPP) est une maladie qui entraine
+                            une paralysie générale du chien puis sa mort. Elle se déclare vers l'âge de 3 mois mais est facilement
+                            détectable grâce à un test adn. Il n'existe pas de traitement connu à ce jour.
+                        </p>
                     </div>
                     <div class="textAndBone">
                         <i class="fa-solid fa-bone bone"></i>
@@ -149,7 +181,10 @@
                     </div>
                     <div class="textAndBone">
                         <i class="fa-solid fa-bone bone"></i>
-                        <p>Tous nos chiens et chiots sont incrits au L.O.F.</p>
+                        <p aria-describedby="lof">Tous nos chiens et chiots sont incrits au L.O.F.</p>
+                        <p role="tooltip" id="lof">
+                            Le Livre des Origine Français (L.O.F) est un registre qui recense tous les chiens de race français et qui garanti la conformité du chien à ses critères de race. Seuls les chiens incrits au L.O.F sont considérés comme des chiens de pure race. Une inscription au L.O.F est obligatoire pour les expositions et les concours type Agility.
+                        </p>
                     </div>
                     <div class="textAndBone">
                         <i class="fa-solid fa-bone bone"></i>
@@ -161,30 +196,24 @@
 
             </div>
 
-            <div id="seeDogs">
-                <a href="" class="button">Voir nos mâles</a>
-                <a href="" class="button">Voir nos femelles</a>
-                <a href="" class="button">Voir nos chiots</a>
-            </div>
 
         </section>
 
         <!-- Rearers presentation-->
-        <div id="rearers">
+        <div id="rearers" class="content">
             <h2 class="sectionTitle">Qui sommes nous ?</h2>
             <div class="box">
                 <div class="columns">
                     <p>Amoureux depuis 34 ans du Rottweiler, nous faisons de leur élevage notre principale activité
-                        depuis maintenant 12 ans. Après des années passées en tant que maître chien, d’analyse et
-                        d’étude du comportement canin (et plus particulièrement celui du Rott), nous sommes ravi de
-                        mettre à contribution ces connaissances pour vous livrer les meilleurs chiots possible. Notre
-                        élevage professionnel, mais à dimension humaine, adhère au Club de Race. Nous nous engageons
-                        donc à créer des conditions favorables au développement de la magnifique race des Rottweillers
-                        et à l’amélioration de son image, souvent malmenée ou déformée par certains médias.</p>
+                        depuis maintenant 12 ans. Après plusieurs années passées en tant que maître chien à analyser et
+                        étudier le comportement canin, nous mettons ces connaissances à votre contribution pour vous
+                        livrer les meilleurs chiots possible. Notre élevage à taille humaine s'engage pour le
+                        développement de la magnifique race des Rottweillers
+                        et pour l’amélioration de son image, souvent malmenée ou déformée par certains médias.</p>
                     <a href="elevage/a-propos.html" class="button">En savoir plus sur notre élevage</a>
                 </div>
                 <div class="columns">
-                    <img src="/images/bebesRott.png" alt="Bébés rottweiler">
+                    <img src="images/bebesRott.png" alt="Bébés rottweiler">
                 </div>
             </div>
             <div id="qualities">
@@ -218,15 +247,15 @@
         </div>
 
         <!-- Actualities -->
-        <section id="actualities">
+        <section id="actualities" class="content">
             <h2 class="sectionTitle">Nos actualités</h2>
 
             <div class="gridBox">
 
-                <a href="">
+                <a href="nos-chiens/nos-portees.html">
                     <article class="articles">
 
-                        <img src="/images/articles/chiot.png" alt="Chiot">
+                        <img src="images/articles/chiot.png" alt="Chiot">
                         <h3>Nouvelles portée, nouveaux chiots !</h3>
                         <p>De tout nouveaux chiots sont disponible chez les gardiens de la Veaussardière. Nés le 25 août
                             2025, ils seront prêts à rejoindre votre famille dès le 25 octobre 2025. Découvrez les ici !
@@ -236,10 +265,10 @@
                     </article>
                 </a>
 
-                <a href="">
+                <a href="nos-chiens/futurs-mariages.html">
                     <article class="articles">
 
-                        <img src="/images/articles/annonceMariage.png" alt="Mariage Gilda et Ante">
+                        <img src="images/articles/annonceMariage.png" alt="Mariage Gilda et Ante">
                         <h3>Mariage exceptionnel</h3>
                         <p>Nous avons le plaisir de vous annoncer le mariage tant attendu entre Gilda Di Casa Sambuca et
                             Ante Vom Hause Edelstein. Réservez en avance votre chiot ici !</p>
@@ -248,10 +277,10 @@
                     </article>
                 </a>
 
-                <a href="">
+                <a href="contact.html">
                     <article class="articles">
 
-                        <img src="/images/articles/incaFlashRouse.png" alt="Inca adoption">
+                        <img src="images/articles/incaFlashRouse.png" alt="Inca adoption">
                         <h3>Au revoir Inca</h3>
                         <p>Après 5 années à nos côtés et nous avoir offert des chiots exceptionnels, il est temps pour
                             nous
@@ -266,38 +295,35 @@
         </section>
 
         <!-- Why take a Rottweiler -->
-        <div id="whyRott">
+        <div id="whyRott" class="content">
             <h2 class="sectionTitle">Pourquoi choisir un Rottweiler ?</h2>
             <div class="box">
                 <div class="columns">
-                    <h3>Qu'est-ce qu'un Rottweiler ?</h3>
-                    <p>Le Rottweiller est un chien avec un physique athlétique et est très protecteur avec son
-                        entourage. Il est fidèle, joueur et très intelligeant. Doté d’une grande bienveillance avec ses
-                        maîtres lorsqu’il est bien éduqué, c’est une véritable boule d’amour au point d’en devenir
-                        collant parfois. Un Rott est facile à éduquer pour les maîtres expérimentés avec nos amis
-                        canins, mais demande de la fermeté qui peu parfois manquer aux débutants. Tout doux et
-                        affectueux qu’il est, il reste un chien de catégories 2 et vous confronte à des démarches
+                    <h3>Comment est un Rottweiler ?</h3>
+                    <p>Le Rottweiller est fidèle, joueur et très intelligeant. Doté d’une grande bienveillance et d'un
+                        esprit protecteur avec ses
+                        maîtres, c’est une véritable boule d’amour au point d’en devenir
+                        collant parfois. Tout doux et
+                        affectueux qu’il est, il reste un chien de catégorie 2 ce qui vous soumet à des démarches
                         administratives et des obligations légales.</p>
-                    <a href="vos-obligations-legales.html" class="button">Prenez connaissance de vos obligations</a>
+                    <a href="vos-obligations-legales.html" class="button">En savoir plus</a>
                 </div>
                 <div class="columns">
-                    <img src="images/photoRott.png" alt="Rottweiler tirant la langue">
+                    <img src="images/lucasPageAccueil.png" alt="Rottweiler tirant la langue">
                 </div>
             </div>
 
             <div class="box">
                 <div class="columns">
-                    <img src="/images/bebesRott.png" alt="Bébés Rottweiler">
+                    <img src="images/rottweilerJoueur.jpg" alt="Rottweiler joueur">
                 </div>
                 <div class="columns">
-                    <h3>Le Rottweiler est-il un chien pour moi ?</h3>
+                    <h3>Le Rottweiler est-il fait pour moi ?</h3>
                     <p>Le Rottweiler est un chien ayant beaucoup de caractère et un tempérament difficile à gérer s’il
-                        est mal éduqué. De ce fait, il ne peut pas être placé entre toutes les mains. Il vous faudra
-                        avoir vous même du caractère, savoir être joueur dans les moments de jeux mais ferme quand il le
-                        faut. Le Rottweiler, bien qu’aussi à l’aise à la mer qu’en montagne, aura besoin d’un jardin
+                        est mal éduqué. Il vous faudra avoir du caractère, savoir être joueur mais ferme quand il le
+                        faut. Il aura besoin d’un jardin
                         suffisament grand pour pouvoir s’épanouir pleinement. Prendre une femelle peut être un bonne
-                        option pour les personnes moins habituées aux Rott ou ayant moins de tempérament. Nous serons de
-                        toutes manières là pour vous guider dans votre choix</p>
+                        alternative pour les personnes moins habituées aux chiens ou ayant moins de tempérament.</p>
                     <a href="faq.html" class="button">D'autres interrogations ?</a>
                 </div>
             </div>
@@ -311,12 +337,12 @@
         </div>
 
         <!-- Testimony -->
-        <section id="testimony">
+        <section id="testimony" class="content">
             <h2 class="sectionTitle">Ils nous ont fait confiance</h2>
             <div class="box">
                 <div class="frame">
                     <div class="columns">
-                        <img src="/images/temoignages/personne1.png" alt="Photo Isabelle">
+                        <img src="images/temoignages/personne1.png" alt="Photo Isabelle">
                     </div>
                     <div class="columns">
                         <h3>Isabelle</h3>
@@ -327,18 +353,18 @@
 
                 <div class="frame">
                     <div class="columns">
-                        <img src="/images/temoignages/personne2.png" alt="Photo Michel">
+                        <img src="images/temoignages/personne2.png" alt="Photo Michel">
                     </div>
                     <div class="columns">
                         <h3>Michel</h3>
                         <p>Amoureux des Rottweiler depuis des années déjà, j’ai finalement sauté le pas pour en adopter.
-                            Véronique et olivier ont été très présent tout au long du processus.</p>
+                            Véronique et Olivier ont été très présent tout au long du processus.</p>
                     </div>
                 </div>
 
                 <div class="frame">
                     <div class="columns">
-                        <img src="/images/temoignages/personne3.png" alt="Photo Rudy">
+                        <img src="images/temoignages/personne3.png" alt="Photo Rudy">
                     </div>
                     <div class="columns">
                         <h3>Rudy</h3>
@@ -350,9 +376,9 @@
     </main>
 
     <!-- Footer -->
- <footer id="footer" class="content">
+    <footer id="footer">
         <div class="box">
-            
+
             <div class="columns">
                 <a href="index.html">Accueil</a>
                 <a href="nos-chiens/nos-portees.html">Nos portées</a>
@@ -364,7 +390,7 @@
             <div class="columns">
 
                 <p id="coordinatesTitle">Nos coordonnées</p>
-                
+
                 <div class="footerInfo">
                     <i class="fa-solid fa-location-dot"></i>
                     <p>Avenue de la plaine
@@ -380,20 +406,21 @@
                 </div>
             </div>
 
-           
+
 
             <div class="columns">
-                
+
                 <p>Éleveur membre de l’Union Française pour le Rottweiler N°549</p>
                 <p>Producteur canin N°062544 affilié à la Société Centrale Canine</p>
                 <p>Formateur habilité pour la formation aux maîtres des chiens de 1ère et 2ème catégories</p>
                 <p>Habilitation transport N°FR06062T1 </p>
             </div>
-                
+
         </div>
         <div id="footerEnd">
             <p>Copyright 2025 -
-            <a href="mentions-legales.html">Mentions Légales</a></p>
+                <a href="mentions-legales.html">Mentions Légales</a>
+            </p>
 
             <a href="#" class="button"><i class="fa-solid fa-arrow-up"></i></a>
         </div>

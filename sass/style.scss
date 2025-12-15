@@ -9,6 +9,7 @@
 
     body {
         font-size: 18px;
+        font-family: 'verdana';
         box-sizing: border-box;
         margin: 0 auto;
     }
@@ -75,8 +76,36 @@
 }
 
 
+// ========================= Tooltip style =========================
+
+[role="tooltip"] {
+  visibility: hidden;
+  position: absolute;
+  background: black;
+  color: white;
+  left: 10%;
+  bottom: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  /* Laisser un délai avant de masquer pour que la souris puisse quitter le
+  champ et entrer dans l'info-bulle */
+  transition: visibility 0.2s;
+}
 
 
+[aria-describedby]:hover,
+[aria-describedby]:focus {
+    position: relative;
+    top: 50%;
+    
+}
+
+[aria-describedby]:hover + [role="tooltip"],
+[aria-describedby]:focus + [role="tooltip"],
+[role="tooltip"]:hover,
+[role="tooltip"]:focus {
+  visibility: visible;
+}
 
 // ========================= Header menu =========================
 #headerMenu {
@@ -211,81 +240,15 @@
     margin-top: dimensions.$mainMenuSize;
 
     #dogPresentationMobile {
-        justify-self: center;
-        width: 80%;
-        height: auto;
 
         img {
+            max-width: 500px;
             width: 100%;
         }
     }
 
-    //Slider
-    .slider {
-        display: none;
-        flex-direction: column;
-        width: 1001px;
-        background-color: white;
+    //For the slider see the dedicated file at sass/slider.scss
 
-        #captions {
-            display: flex;
-            width: 100%;
-            gap: 1px;
-
-            //A faire en mixin
-            #caption1 {
-                display: flex;
-                justify-content: center;
-                padding: 4px 0;
-                align-items: center;
-                gap: dimensions.$standardLittleGap;
-                width: 500px;
-                background-color: colors.$sliderCaptionBackground;
-
-                i {
-                    color: colors.$femaleDog;
-                }
-
-                p {
-                    color: black;
-                }
-            }
-
-            #caption2 {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: dimensions.$standardLittleGap;
-                padding: 4px 0;
-                width: 500px;
-                background-color: colors.$sliderCaptionBackground;
-
-                i {
-                    color: colors.$femaleDog;
-                }
-
-                p {
-                    color: black;
-                }
-            }
-
-        }
-
-        .images {
-            display: flex;
-            gap: 1px;
-            width: 100%;
-
-            a {
-                img {
-                    height: auto;
-                    width: 500px;
-                }
-            }
-
-        }
-
-    }
 
     .box {
         gap: dimensions.$standardLittleGap;
@@ -293,7 +256,9 @@
         .columns {
             .textAndBone {
                 display: flex;
+                position: relative;
                 width: 100%;
+                height: max-content;
                 align-items: center;
                 justify-content: flex-start;
                 gap: dimensions.$standardLittleGap;
@@ -302,7 +267,9 @@
                 .bone {
                     text-align: left;
                     font-size: 1.6rem;
-
+                }
+                p{
+                    
                 }
             }
 
@@ -313,6 +280,7 @@
         display: flex;
         gap: dimensions.$standardMediumGap;
     }
+
 }
 
 
@@ -386,7 +354,7 @@
         grid-template-columns: repeat(auto-fill, 300px);
         grid-template-rows: 450px;
         gap: dimensions.$standardMediumGap;
-        max-width: 90%;
+        max-width: 100%;
 
 
         a {
@@ -454,13 +422,24 @@
                 text-align: center;
             }
         }
+
+        &:nth-child(2) {
+            .columns:last-child {
+                img {
+                    max-width: 450px;
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            .columns:first-child {
+                display: none;
+            }
+        }
+
     }
 
-    .box:nth-child(3) {
-        .columns:first-child {
-            display: none;
-        }
-    }
+
 
     #warning {
         display: flex;
@@ -605,7 +584,7 @@
         display: flex;
         width: 90%;
         padding-bottom: 16px;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
 
         a {
@@ -627,6 +606,43 @@
 }
 
 // ========================= Media Queries =========================
+//Only update the whyRott section
+@media screen and (min-width:1000px) {
+    #whyRott {
+        .box {
+            flex-direction: row;
+            text-align: left;
+
+            .columns:first-child {
+                h3 {
+                    width: 100%;
+                    text-align: left;
+                }
+            }
+
+            .columns:last-child {
+                h3 {
+                    width: 100%;
+                    text-align: right;
+                }
+            }
+        }
+
+        .box:nth-child(3) {
+            .columns:first-child {
+                display: flex;
+                max-width: 450px;
+            }
+        }
+
+        #warning {
+            flex-direction: row;
+            text-align: left;
+        }
+    }
+
+}
+
 @media (min-width:1200px) {
 
     // ============== General Settings
@@ -668,6 +684,7 @@
 
                     .textAndChevron {
                         pointer-events: all;
+
                         &:hover+ul {
                             display: flex;
 
@@ -699,6 +716,7 @@
                             background-color: colors.$dropDownMenuBackgroundColor;
                             border: 2px solid colors.$dropDownMenuTextColor;
                             padding: 0;
+
                             a {
                                 padding: 4px 8px;
                                 display: inline-block;
@@ -724,6 +742,7 @@
 
     // ============== Dogs presentation
     #dogs {
+        //Necessary since in mobile version there is a margin top
         margin-top: 0;
 
         #dogPresentationMobile {
@@ -735,7 +754,12 @@
         }
 
         .box {
+            order: 2;
             gap: dimensions.$standardMediumGap;
+        }
+
+        #seeDogs {
+            order: 3;
         }
     }
 
@@ -747,8 +771,6 @@
             }
         }
     }
-
-    // ============== Header
 
     // ============== Why Rotteweiler
     #whyRott {
@@ -771,6 +793,7 @@
         .box:nth-child(3) {
             .columns:first-child {
                 display: flex;
+                max-width: 450px;
             }
         }
 
@@ -813,6 +836,10 @@
                     font-size: 1rem;
                 }
             }
+        }
+
+        #footerEnd {
+            justify-content: center;
         }
     }
 

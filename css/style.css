@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
     General colors
 */
@@ -7,12 +8,19 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "verdana";
+  src: url(/fonts/verdana-webfont.woff), url(/fonts/verdana-webfont.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   padding: 0;
   margin: 0;
 }
 * body {
   font-size: 18px;
+  font-family: "verdana";
   box-sizing: border-box;
   margin: 0 auto;
 }
@@ -63,6 +71,33 @@
 }
 * .gridBox {
   display: grid;
+}
+
+[role=tooltip] {
+  visibility: hidden;
+  position: absolute;
+  background: black;
+  color: white;
+  left: 10%;
+  bottom: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  /* Laisser un délai avant de masquer pour que la souris puisse quitter le
+  champ et entrer dans l'info-bulle */
+  transition: visibility 0.2s;
+}
+
+[aria-describedby]:hover,
+[aria-describedby]:focus {
+  position: relative;
+  top: 50%;
+}
+
+[aria-describedby]:hover + [role=tooltip],
+[aria-describedby]:focus + [role=tooltip],
+[role=tooltip]:hover,
+[role=tooltip]:focus {
+  visibility: visible;
 }
 
 #headerMenu {
@@ -170,12 +205,8 @@
   color: #eeeeee;
   margin-top: 60px;
 }
-#dogs #dogPresentationMobile {
-  justify-self: center;
-  width: 80%;
-  height: auto;
-}
 #dogs #dogPresentationMobile img {
+  max-width: 500px;
   width: 100%;
 }
 #dogs .slider {
@@ -233,7 +264,9 @@
 }
 #dogs .box .columns .textAndBone {
   display: flex;
+  position: relative;
   width: 100%;
+  height: max-content;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
@@ -301,7 +334,7 @@
   grid-template-columns: repeat(auto-fill, 300px);
   grid-template-rows: 450px;
   gap: 24px;
-  max-width: 90%;
+  max-width: 100%;
 }
 #actualities .gridBox a {
   height: fit-content;
@@ -355,6 +388,9 @@
 #whyRott .box .columns h3 {
   width: 100%;
   text-align: center;
+}
+#whyRott .box:nth-child(2) .columns:last-child img {
+  max-width: 450px;
 }
 #whyRott .box:nth-child(3) .columns:first-child {
   display: none;
@@ -474,7 +510,7 @@
   display: flex;
   width: 90%;
   padding-bottom: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 #footer #footerEnd a {
@@ -492,6 +528,28 @@
   -o-border-radius: 90px;
 }
 
+@media screen and (min-width: 1000px) {
+  #whyRott .box {
+    flex-direction: row;
+    text-align: left;
+  }
+  #whyRott .box .columns:first-child h3 {
+    width: 100%;
+    text-align: left;
+  }
+  #whyRott .box .columns:last-child h3 {
+    width: 100%;
+    text-align: right;
+  }
+  #whyRott .box:nth-child(3) .columns:first-child {
+    display: flex;
+    max-width: 450px;
+  }
+  #whyRott #warning {
+    flex-direction: row;
+    text-align: left;
+  }
+}
 @media (min-width: 1200px) {
   .box {
     flex-direction: row;
@@ -569,7 +627,11 @@
     display: block;
   }
   #dogs .box {
+    order: 2;
     gap: 24px;
+  }
+  #dogs #seeDogs {
+    order: 3;
   }
   #rearers .box .columns:last-child {
     display: flex;
@@ -584,6 +646,7 @@
   }
   #whyRott .box:nth-child(3) .columns:first-child {
     display: flex;
+    max-width: 450px;
   }
   #whyRott #warning {
     flex-direction: row;
@@ -610,6 +673,9 @@
   }
   #footer .box .columns #coordinatesTitle {
     font-size: 1rem;
+  }
+  #footer #footerEnd {
+    justify-content: center;
   }
 }
 
