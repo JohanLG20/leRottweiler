@@ -87,44 +87,55 @@
             <div class="slider">
                 <div id="captions">
                     <div id="caption1">
-                        <i class="fa-solid fa-venus"></i>
+                        <i class=""></i>
                         <p id="firstDogName">Dog name</p>
                     </div>
                     <div id="caption2">
-                        <i class="fa-solid fa-venus"></i>
+                        <i class=""></i>
                         <p id="secondDogName">Dog name</p>
                     </div>
                 </div>
 
-                    <div id="leftButton" class="sliderButton">
-<i class="fa-solid fa-circle-arrow-left"></i>
+                <div id="leftButton" class="sliderButton" onclick="previousSlide()">
+                    <i class="fa-solid fa-circle-arrow-left"></i>
+                </div>
+
+                <div id="rightButton" class="sliderButton" onclick="nextSlide()">
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                </div>
+                <div id="sliderImages">
+                    <div class="sliderImage">
+                        <a href=""><img src="images/slider/anitaDesGardiensDeLaVeaussardiere.png"
+                                alt="Anita des Gardiens de la Veaussardière" data-gender="female"></a>
+                        <a href=""><img src="images/slider/lislaDiCasaSambuca.png" alt="Lisla Di Casa Sambuca"
+                                data-gender="female"></a>
                     </div>
-
-                    <div id="leftButton" class="sliderButton">
-<i class="fa-solid fa-circle-arrow-left"></i>
+                    <div class="sliderImage">
+                        <a href=""><img src="images/slider/gildaDiCasaSambuca.png" alt="Gilda Di Casa Sambuca"
+                                data-gender="female"></a>
+                        <a href=""><img src="images/slider/supraDiePrinzenShwarzDerKuppel.png"
+                                alt="Supra Die Prinzen Schwarz Der Kuppel" data-gender="female"></a>
                     </div>
+                    <div class="sliderImage">
+                        <a href=""><img src="images/slider/vannessaDesGardiensDeLaVeaussardière.png"
+                                alt="Vanessa des Gardiens de la Veaussardière" data-gender="female"></a>
+                        <a href=""><img src="images/slider/toxieDesGardiensDeLaVeaussardière.png"
+                                alt="Toxie des Gardiens de la Veaussardière" data-gender="female"></a>
+                    </div>
+                    <div class="sliderImage">
+                        <a href=""><img src="images/slider/famaVomHauseEdelstein.png" alt="Fama Vom Hause Edelstein"
+                                data-gender="female"></a>
+                        <a href=""><img src="images/slider/alfyFlashRouse.png" alt="Alfy Flash Rouse"
+                                data-gender="male"></a>
+                    </div>
+                    <div class="sliderImage">
+                        <a href=""><img src="images/slider/anteVomHauseEdelstein.png" alt="Ante Vom Hause Edelstein"
+                                data-gender="male"></a>
+                        <a href=""><img src="images/slider/lucasDiSambuca.png" alt="Lucas Di Casa lucasDiSambuca"
+                                data-gender="male"></a>
+                    </div>
+                </div>
 
-
-                <div class="images">
-                    <a href=""><img src="images/slider/anitaDesGardiensDeLaVeaussardiere.png" alt=""></a>
-                    <a href=""><img src="images/slider/lislaDiCasaSambuca.png" alt=""></a>
-                </div>
-                <div class="images">
-                    <a href=""><img src="images/slider/gildaDiCasaSambuca.png" alt=""></a>
-                    <a href=""><img src="images/slider/supraDiePrinzenShwarzDerKuppel.png" alt=""></a>
-                </div>
-                <div class="images">
-                    <a href=""><img src="images/slider/vannessaDesGardiensDeLaVeaussardière.png" alt=""></a>
-                    <a href=""><img src="images/slider/toxieDesGardiensDeLaVeaussardière.png" alt=""></a>
-                </div>
-                <div class="images">
-                    <a href=""><img src="images/slider/famaVomHauseEdelstein.png" alt=""></a>
-                    <a href=""><img src="images/slider/alfyFlashRouse.png" alt=""></a>
-                </div>
-                <div class="images">
-                    <a href=""><img src="images/slider/anteVomHauseEdelstein.png" alt=""></a>
-                    <a href=""><img src="images/slider/lucasDiSambuca.png" alt=""></a>
-                </div>
 
             </div>
 
@@ -159,7 +170,10 @@
                         <i class="fa-solid fa-bone bone"></i>
                         <p aria-describedby="dysplasie">Chiots radiographié dysplasie coudes et hanches </p>
                         <p role="tooltip" id="dysplasie">
-                            La dysplasie est une affection articulaire qui peut engendrer de grandes douleurs et limiter la mobilité du chien. Elle est plutôt présente chez les chiens de grande race. Elle peut être héréditaire mais peut se développer grâce à d'autres facteurs comme l'alimentation ou des exercices inadaptés.
+                            La dysplasie est une affection articulaire qui peut engendrer de grandes douleurs et limiter
+                            la mobilité du chien. Elle est plutôt présente chez les chiens de grande race. Elle peut
+                            être héréditaire mais peut se développer grâce à d'autres facteurs comme l'alimentation ou
+                            des exercices inadaptés.
                         </p>
                     </div>
 
@@ -171,7 +185,8 @@
                         <p aria-describedby="jlpp">Test adn pour JLPP négatif</p>
                         <p role="tooltip" id="jlpp">
                             La paralysie laryngée juvénile et polyneuropathie (JLPP) est une maladie qui entraine
-                            une paralysie générale du chien puis sa mort. Elle se déclare vers l'âge de 3 mois mais est facilement
+                            une paralysie générale du chien puis sa mort. Elle se déclare vers l'âge de 3 mois mais est
+                            facilement
                             détectable grâce à un test adn. Il n'existe pas de traitement connu à ce jour.
                         </p>
                     </div>
@@ -183,7 +198,10 @@
                         <i class="fa-solid fa-bone bone"></i>
                         <p aria-describedby="lof">Tous nos chiens et chiots sont incrits au L.O.F.</p>
                         <p role="tooltip" id="lof">
-                            Le Livre des Origine Français (L.O.F) est un registre qui recense tous les chiens de race français et qui garanti la conformité du chien à ses critères de race. Seuls les chiens incrits au L.O.F sont considérés comme des chiens de pure race. Une inscription au L.O.F est obligatoire pour les expositions et les concours type Agility.
+                            Le Livre des Origine Français (L.O.F) est un registre qui recense tous les chiens de race
+                            français et qui garanti la conformité du chien à ses critères de race. Seuls les chiens
+                            incrits au L.O.F sont considérés comme des chiens de pure race. Une inscription au L.O.F est
+                            obligatoire pour les expositions et les concours type Agility.
                         </p>
                     </div>
                     <div class="textAndBone">
@@ -428,6 +446,7 @@
     </footer>
 
     <script text="text/javascript" src="scripts/scripts.js"></script>
+    <script text="text/javascript" src="scripts/slider.js"></script>
 </body>
 
 </html>
