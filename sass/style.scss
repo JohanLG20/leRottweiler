@@ -79,32 +79,43 @@
 // ========================= Tooltip style =========================
 
 [role="tooltip"] {
-  visibility: hidden;
-  position: absolute;
-  background: black;
-  color: white;
-  left: 10%;
-  bottom: 100%;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  /* Laisser un délai avant de masquer pour que la souris puisse quitter le
+    display: none;
+    position: absolute;
+    left: 10%;
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    /* Laisser un délai avant de masquer pour que la souris puisse quitter le
   champ et entrer dans l'info-bulle */
-  transition: visibility 0.2s;
+    transition: visibility 0.2s;
+
 }
+
+//This two type are made so the text is never covered with the tooltip
+.tooltipBottom {
+    top: 100%;
+
+}
+
+.tooltipTop {
+    bottom: 100%;
+
+}
+
 
 
 [aria-describedby]:hover,
 [aria-describedby]:focus {
     position: relative;
-    top: 50%;
-    
+
 }
 
-[aria-describedby]:hover + [role="tooltip"],
-[aria-describedby]:focus + [role="tooltip"],
+[aria-describedby]:hover+[role="tooltip"],
+[aria-describedby]:focus+[role="tooltip"],
 [role="tooltip"]:hover,
 [role="tooltip"]:focus {
-  visibility: visible;
+    display: block;
 }
 
 // ========================= Header menu =========================
@@ -148,7 +159,7 @@
 
     #mainMenu {
         display: none;
-        width: 100%;
+        width: 100vw;
         background-color: colors.$primaryColor;
         color: colors.$secondaryColor;
         position: fixed;
@@ -222,6 +233,7 @@
 #banner {
     display: none;
     width: 100%;
+    height: auto;
     margin-top: 30px;
 }
 
@@ -246,7 +258,8 @@
         }
     }
 
-    //For the slider see the dedicated file at sass/slider.scss
+    //The slider is normally here
+    //The stylesheet is in the dedicated file at sass/slider.scss
 
 
     .box {
@@ -267,8 +280,23 @@
                     text-align: left;
                     font-size: 1.6rem;
                 }
-                p{
+
+                .clickToToogleTooltip {
+                    text-decoration: underline wavy;
+                    margin-right: 15px;
+                    -moz-text-decoration-style: wavy;
+
+                    i {
+                        position: absolute;
+                        font-size: 0.9rem;
+                        margin-left: 2px;
+                        margin-top: -5px;
+
+                    }
                     
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
             }
 
@@ -673,6 +701,8 @@
                 box-sizing: border-box;
 
                 li {
+                    border: 2px solid colors.$pattern1BackgroungColor;
+
                     &:hover {
                         border-bottom: 2px solid colors.$secondaryColor ;
                     }
@@ -826,6 +856,8 @@
                 align-items: flex-start;
 
                 a {
+                    border-bottom: 2px solid colors.$pattern1BackgroungColor;
+
                     &:hover {
                         border-bottom: 2px solid colors.$pattern1TextColor;
                     }

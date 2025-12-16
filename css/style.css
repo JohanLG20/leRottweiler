@@ -74,12 +74,11 @@
 }
 
 [role=tooltip] {
-  visibility: hidden;
+  display: none;
   position: absolute;
-  background: black;
-  color: white;
   left: 10%;
-  bottom: 100%;
+  background-color: black;
+  color: white;
   padding: 0.5rem;
   border-radius: 0.25rem;
   /* Laisser un délai avant de masquer pour que la souris puisse quitter le
@@ -87,17 +86,24 @@
   transition: visibility 0.2s;
 }
 
+.tooltipBottom {
+  top: 100%;
+}
+
+.tooltipTop {
+  bottom: 100%;
+}
+
 [aria-describedby]:hover,
 [aria-describedby]:focus {
   position: relative;
-  top: 50%;
 }
 
 [aria-describedby]:hover + [role=tooltip],
 [aria-describedby]:focus + [role=tooltip],
 [role=tooltip]:hover,
 [role=tooltip]:focus {
-  visibility: visible;
+  display: block;
 }
 
 #headerMenu {
@@ -136,7 +142,7 @@
 }
 #headerMenu #mainMenu {
   display: none;
-  width: 100%;
+  width: 100vw;
   background-color: #895324;
   color: #eeeeee;
   position: fixed;
@@ -190,7 +196,7 @@
 #banner {
   display: none;
   width: 100%;
-  max-height: 700px;
+  height: auto;
   margin-top: 30px;
 }
 
@@ -209,56 +215,6 @@
   max-width: 500px;
   width: 100%;
 }
-#dogs .slider {
-  display: none;
-  flex-direction: column;
-  width: 1001px;
-  background-color: white;
-}
-#dogs .slider #captions {
-  display: flex;
-  width: 100%;
-  gap: 1px;
-}
-#dogs .slider #captions #caption1 {
-  display: flex;
-  justify-content: center;
-  padding: 4px 0;
-  align-items: center;
-  gap: 10px;
-  width: 500px;
-  background-color: rgba(116, 116, 116, 0.6);
-}
-#dogs .slider #captions #caption1 i {
-  color: #FFB1CB;
-}
-#dogs .slider #captions #caption1 p {
-  color: black;
-}
-#dogs .slider #captions #caption2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 4px 0;
-  width: 500px;
-  background-color: rgba(116, 116, 116, 0.6);
-}
-#dogs .slider #captions #caption2 i {
-  color: #FFB1CB;
-}
-#dogs .slider #captions #caption2 p {
-  color: black;
-}
-#dogs .slider .images {
-  display: flex;
-  gap: 1px;
-  width: 100%;
-}
-#dogs .slider .images a img {
-  height: auto;
-  width: 500px;
-}
 #dogs .box {
   gap: 10px;
 }
@@ -274,6 +230,20 @@
 #dogs .box .columns .textAndBone .bone {
   text-align: left;
   font-size: 1.6rem;
+}
+#dogs .box .columns .textAndBone .clickToToogleTooltip {
+  text-decoration: underline wavy;
+  margin-right: 15px;
+  -moz-text-decoration-style: wavy;
+}
+#dogs .box .columns .textAndBone .clickToToogleTooltip i {
+  position: absolute;
+  font-size: 0.9rem;
+  margin-left: 2px;
+  margin-top: -5px;
+}
+#dogs .box .columns .textAndBone .clickToToogleTooltip:hover {
+  cursor: pointer;
 }
 #dogs #seeDogs {
   display: flex;
@@ -573,6 +543,9 @@
     flex-direction: row;
     box-sizing: border-box;
   }
+  #headerMenu #mainMenu ul li {
+    border: 2px solid #895324;
+  }
   #headerMenu #mainMenu ul li:hover {
     border-bottom: 2px solid #eeeeee;
   }
@@ -667,6 +640,9 @@
     width: max-content;
     border-bottom: none;
     align-items: flex-start;
+  }
+  #footer .box .columns a {
+    border-bottom: 2px solid #895324;
   }
   #footer .box .columns a:hover {
     border-bottom: 2px solid #ffffff;
