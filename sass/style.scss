@@ -81,10 +81,13 @@
 [role="tooltip"] {
     display: none;
     position: absolute;
+    width: 100%;
     left: 10%;
     background-color: black;
+    height: max-content;
     z-index: 2;
     color: white;
+    font-size: 0.9rem;
     padding: 0.5rem;
     border-radius: 0.25rem;
     /* Laisser un délai avant de masquer pour que la souris puisse quitter le
@@ -95,7 +98,7 @@
 
 //This two type are made so the text is never covered with the tooltip in desktop mode
 .tooltipBottom {
-    top: 100%;
+    bottom: 100%;
 
 }
 
@@ -106,8 +109,27 @@
 
 
 // ========================= Mixins =========================
-@mixin theme($isFirstPattern){
-   
+@mixin theme($patternSelection) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: dimensions.$standardBigGap 0;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$primaryColor;
+    color: colors.$secondaryColor;
+
+
+    @if ($patternSelection =="firstPattern") {
+        background-color: colors.$pattern1BackgroungColor;
+        color: colors.$pattern1TextColor;
+    }
+
+    @else {
+        background-color: colors.$pattern2BackgroungColor;
+        color: colors.$pattern2TextColor;
+
+    }
 }
 
 
@@ -233,14 +255,7 @@
 
 // ========================= Dogs presentation =========================
 #dogs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: dimensions.$standardBigGap 0;
-    gap: dimensions.$standardBigGap;
-    background-color: colors.$primaryColor;
-    color: colors.$secondaryColor;
+    @include theme("firstPattern");
     margin-top: dimensions.$mainMenuSize;
 
     #dogPresentationMobile {
@@ -306,14 +321,7 @@
 
 // ========================= Rearers presentation =========================
 #rearers {
-    padding: dimensions.$standardBigGap 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: dimensions.$standardBigGap;
-    background-color: colors.$pattern2BackgroungColor;
-    color: colors.$pattern2TextColor;
+    @include theme("secondPattern");
 
     .box {
         .columns:last-child {
@@ -361,14 +369,7 @@
 
 // ========================= Actualities =========================
 #actualities {
-    padding: dimensions.$standardBigGap 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: dimensions.$standardBigGap;
-    background-color: colors.$pattern1BackgroungColor;
-    color: colors.$pattern1TextColor;
+    @include theme("firstPattern");
 
     .gridBox {
         grid-template-columns: repeat(auto-fill, 300px);
@@ -428,14 +429,7 @@
 
 // ========================= Why take a Rottweiler =========================
 #whyRott {
-    padding: dimensions.$standardBigGap 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: dimensions.$standardBigGap;
-    background-color: colors.$pattern2BackgroungColor;
-    color: colors.$pattern2TextColor;
+    @include theme("secondPattern");
 
     .box {
         gap: dimensions.$standardLittleGap;
@@ -489,14 +483,7 @@
 
 // ========================= Testimony =========================
 #testimony {
-    padding: dimensions.$standardBigGap 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: dimensions.$standardBigGap;
-    background-color: colors.$pattern1BackgroungColor;
-    color: colors.$pattern1TextColor;
+    @include theme("firstPattern");
 
     .box {
         width: 90%;
@@ -545,14 +532,7 @@
 
 // ========================= Footer =========================
 #footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    gap: dimensions.$standardBigGap;
-    background-color: colors.$pattern1BackgroungColor;
-    color: colors.$pattern1TextColor;
+    @include theme("firstPattern");
     margin-top: 1px;
 
     .box {
@@ -634,18 +614,25 @@
 
 @media screen and (min-width:1000px) {
     #dogs {
+
         //We show the slider instead of the photo
         #dogPresentationMobile {
             display: none;
         }
 
         .box {
+            flex-direction: row;
             order: 2;
             gap: dimensions.$standardMediumGap;
         }
 
         #seeDogs {
             order: 3;
+        }
+
+        .tooltipBottom {
+            top: 100%;
+
         }
     }
 
@@ -706,6 +693,7 @@
     .columns {
         width: 50%;
     }
+
 
     // ============== Header
     #headerMenu {
@@ -797,8 +785,6 @@
     #dogs {
         //Necessary since in mobile version there is a margin top
         margin-top: 0;
-
-
     }
 
     // ============== Rearers presentation

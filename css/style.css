@@ -76,10 +76,13 @@
 [role=tooltip] {
   display: none;
   position: absolute;
+  width: 100%;
   left: 10%;
   background-color: black;
+  height: max-content;
   z-index: 2;
   color: white;
+  font-size: 0.9rem;
   padding: 0.5rem;
   border-radius: 0.25rem;
   /* Laisser un délai avant de masquer pour que la souris puisse quitter le
@@ -88,7 +91,7 @@
 }
 
 .tooltipBottom {
-  top: 100%;
+  bottom: 100%;
 }
 
 .tooltipTop {
@@ -198,6 +201,8 @@
   gap: 32px;
   background-color: #895324;
   color: #eeeeee;
+  background-color: #895324;
+  color: #ffffff;
   margin-top: 60px;
 }
 #dogs #dogPresentationMobile img {
@@ -240,12 +245,14 @@
 }
 
 #rearers {
-  padding: 32px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 32px 0;
   gap: 32px;
+  background-color: #895324;
+  color: #eeeeee;
   background-color: #eeeeee;
   color: #000000;
 }
@@ -280,12 +287,14 @@
 }
 
 #actualities {
-  padding: 32px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 32px 0;
   gap: 32px;
+  background-color: #895324;
+  color: #eeeeee;
   background-color: #895324;
   color: #ffffff;
 }
@@ -334,12 +343,14 @@
 }
 
 #whyRott {
-  padding: 32px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 32px 0;
   gap: 32px;
+  background-color: #895324;
+  color: #eeeeee;
   background-color: #eeeeee;
   color: #000000;
 }
@@ -375,12 +386,14 @@
 }
 
 #testimony {
-  padding: 32px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 32px 0;
   gap: 32px;
+  background-color: #895324;
+  color: #eeeeee;
   background-color: #895324;
   color: #ffffff;
 }
@@ -426,8 +439,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  padding: 32px 0;
   gap: 32px;
+  background-color: #895324;
+  color: #eeeeee;
   background-color: #895324;
   color: #ffffff;
   margin-top: 1px;
@@ -495,11 +510,15 @@
     display: none;
   }
   #dogs .box {
+    flex-direction: row;
     order: 2;
     gap: 24px;
   }
   #dogs #seeDogs {
     order: 3;
+  }
+  #dogs .tooltipBottom {
+    top: 100%;
   }
   #actualities .gridBox a:nth-child(3) {
     display: flex;
