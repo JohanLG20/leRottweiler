@@ -2,6 +2,37 @@
 @use "dimensions";
 @use "fonts";
 
+@mixin theme($patternSelection) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: dimensions.$standardBigGap 0;
+    gap: dimensions.$standardBigGap;
+    background-color: colors.$primaryColor;
+    color: colors.$secondaryColor;
+
+
+    @if ($patternSelection =="firstPattern") {
+        background-color: colors.$pattern1BackgroungColor;
+        color: colors.$pattern1TextColor;
+    }
+
+    @else {
+        background-color: colors.$pattern2BackgroungColor;
+        color: colors.$pattern2TextColor;
+
+    }
+}
+
+@mixin boxPreset {
+    display: flex;
+    flex-direction: column;
+    gap: dimensions.$standardMediumGap;
+    width: 80%;
+
+}
+
 // ========================= General settings =========================
 * {
     padding: 0;
@@ -42,19 +73,19 @@
         }
     }
 
-
-
     .sectionTitle {
         width: fit-content;
         font-size: dimensions.$titleSectionSize;
         text-align: center;
     }
-
+    
+    //Box that changes direction at 1200px
     .box {
-        display: flex;
-        flex-direction: column;
-        gap: dimensions.$standardMediumGap;
-        width: 80%;
+        @include boxPreset;
+    }
+    //Box that changes direction at 1000px
+    .adaptativeBox {
+        @include boxPreset;
     }
 
     .columns {
@@ -109,28 +140,7 @@
 
 
 // ========================= Mixins =========================
-@mixin theme($patternSelection) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: dimensions.$standardBigGap 0;
-    gap: dimensions.$standardBigGap;
-    background-color: colors.$primaryColor;
-    color: colors.$secondaryColor;
 
-
-    @if ($patternSelection =="firstPattern") {
-        background-color: colors.$pattern1BackgroungColor;
-        color: colors.$pattern1TextColor;
-    }
-
-    @else {
-        background-color: colors.$pattern2BackgroungColor;
-        color: colors.$pattern2TextColor;
-
-    }
-}
 
 
 // ========================= Header menu =========================
@@ -270,7 +280,7 @@
     //The stylesheet is in the dedicated file at sass/slider.scss
 
 
-    .box {
+    .adaptativeBox {
         gap: dimensions.$standardLittleGap;
 
         .columns {
@@ -372,7 +382,7 @@
     @include theme("firstPattern");
 
     .gridBox {
-        grid-template-columns: repeat(auto-fill, 300px);
+        grid-template-columns: repeat(auto-fill, 315px);
         grid-template-rows: 450px;
         gap: dimensions.$standardMediumGap;
         max-width: 100%;
@@ -431,7 +441,7 @@
 #whyRott {
     @include theme("secondPattern");
 
-    .box {
+    .adaptativeBox {
         gap: dimensions.$standardLittleGap;
         align-items: center;
 
@@ -461,10 +471,7 @@
 
 
     #warning {
-        display: flex;
-        flex-direction: column;
         padding: 8px;
-        text-align: center;
         gap: dimensions.$standardMediumGap;
         background-color: #E5E5E5;
         color: red;
@@ -613,6 +620,11 @@
 // ========================= Media Queries =========================
 
 @media screen and (min-width:1000px) {
+    .adaptativeBox {
+        flex-direction: row;
+        text-align: left;
+    }
+
     #dogs {
 
         //We show the slider instead of the photo
@@ -620,8 +632,7 @@
             display: none;
         }
 
-        .box {
-            flex-direction: row;
+        .adaptativeBox {
             order: 2;
             gap: dimensions.$standardMediumGap;
         }
@@ -647,9 +658,7 @@
     }
 
     #whyRott {
-        .box {
-            flex-direction: row;
-            text-align: left;
+        .adaptativeBox {
 
             .columns:first-child {
                 h3 {
@@ -664,19 +673,15 @@
                     text-align: right;
                 }
             }
-        }
 
-        .box:nth-child(3) {
-            .columns:first-child {
-                display: flex;
-                max-width: 450px;
+            &:nth-child(3) {
+                .columns:first-child {
+                    display: flex;
+                    max-width: 450px;
+                }
             }
         }
 
-        #warning {
-            flex-direction: row;
-            text-align: left;
-        }
     }
 
 }
@@ -798,7 +803,7 @@
 
     // ============== Why Rotteweiler
     #whyRott {
-        .box {
+        .adaptativeBox {
             .columns:first-child {
                 h3 {
                     width: 100%;
@@ -812,6 +817,7 @@
                     text-align: right;
                 }
             }
+
         }
 
         .box:nth-child(3) {

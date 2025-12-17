@@ -58,6 +58,12 @@
   gap: 24px;
   width: 80%;
 }
+* .adaptativeBox {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 80%;
+}
 * .columns {
   display: flex;
   width: 100%;
@@ -209,10 +215,10 @@
   max-width: 500px;
   width: 100%;
 }
-#dogs .box {
+#dogs .adaptativeBox {
   gap: 10px;
 }
-#dogs .box .columns .textAndBone {
+#dogs .adaptativeBox .columns .textAndBone {
   display: flex;
   position: relative;
   width: 100%;
@@ -221,22 +227,22 @@
   justify-content: flex-start;
   gap: 10px;
 }
-#dogs .box .columns .textAndBone .bone {
+#dogs .adaptativeBox .columns .textAndBone .bone {
   text-align: left;
   font-size: 1.6rem;
 }
-#dogs .box .columns .textAndBone .clickToToogleTooltip {
+#dogs .adaptativeBox .columns .textAndBone .clickToToogleTooltip {
   text-decoration: underline wavy;
   margin-right: 15px;
   -moz-text-decoration-style: wavy;
 }
-#dogs .box .columns .textAndBone .clickToToogleTooltip i {
+#dogs .adaptativeBox .columns .textAndBone .clickToToogleTooltip i {
   position: absolute;
   font-size: 0.9rem;
   margin-left: 2px;
   margin-top: -2px;
 }
-#dogs .box .columns .textAndBone .clickToToogleTooltip:hover {
+#dogs .adaptativeBox .columns .textAndBone .clickToToogleTooltip:hover {
   cursor: pointer;
 }
 #dogs #seeDogs {
@@ -299,7 +305,7 @@
   color: #ffffff;
 }
 #actualities .gridBox {
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 315px);
   grid-template-rows: 450px;
   gap: 24px;
   max-width: 100%;
@@ -354,25 +360,22 @@
   background-color: #eeeeee;
   color: #000000;
 }
-#whyRott .box {
+#whyRott .adaptativeBox {
   gap: 10px;
   align-items: center;
 }
-#whyRott .box .columns h3 {
+#whyRott .adaptativeBox .columns h3 {
   width: 100%;
   text-align: center;
 }
-#whyRott .box:nth-child(2) .columns:last-child img {
+#whyRott .adaptativeBox:nth-child(2) .columns:last-child img {
   max-width: 450px;
 }
-#whyRott .box:nth-child(3) .columns:first-child {
+#whyRott .adaptativeBox:nth-child(3) .columns:first-child {
   display: none;
 }
 #whyRott #warning {
-  display: flex;
-  flex-direction: column;
   padding: 8px;
-  text-align: center;
   gap: 24px;
   background-color: #E5E5E5;
   color: red;
@@ -506,11 +509,14 @@
 }
 
 @media screen and (min-width: 1000px) {
+  .adaptativeBox {
+    flex-direction: row;
+    text-align: left;
+  }
   #dogs #dogPresentationMobile {
     display: none;
   }
-  #dogs .box {
-    flex-direction: row;
+  #dogs .adaptativeBox {
     order: 2;
     gap: 24px;
   }
@@ -523,25 +529,17 @@
   #actualities .gridBox a:nth-child(3) {
     display: flex;
   }
-  #whyRott .box {
-    flex-direction: row;
-    text-align: left;
-  }
-  #whyRott .box .columns:first-child h3 {
+  #whyRott .adaptativeBox .columns:first-child h3 {
     width: 100%;
     text-align: left;
   }
-  #whyRott .box .columns:last-child h3 {
+  #whyRott .adaptativeBox .columns:last-child h3 {
     width: 100%;
     text-align: right;
   }
-  #whyRott .box:nth-child(3) .columns:first-child {
+  #whyRott .adaptativeBox:nth-child(3) .columns:first-child {
     display: flex;
     max-width: 450px;
-  }
-  #whyRott #warning {
-    flex-direction: row;
-    text-align: left;
   }
 }
 @media (min-width: 1200px) {
@@ -620,11 +618,11 @@
   #rearers .box .columns:last-child {
     display: flex;
   }
-  #whyRott .box .columns:first-child h3 {
+  #whyRott .adaptativeBox .columns:first-child h3 {
     width: 100%;
     text-align: left;
   }
-  #whyRott .box .columns:last-child h3 {
+  #whyRott .adaptativeBox .columns:last-child h3 {
     width: 100%;
     text-align: right;
   }
